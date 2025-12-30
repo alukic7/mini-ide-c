@@ -1,27 +1,30 @@
-This is a Kotlin Multiplatform project targeting Desktop (JVM).
+# Mini IDE 
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+A lightweight IDE for running Kotlin and Swift scripts, built with **Compose Multiplatform** targeting **desktop**.
 
-### Build and Run Desktop (JVM) Application
+## Features
 
-To build and run the development version of the desktop app, use the run configuration from the run widget
-in your IDE’s toolbar or run it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:run
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:run
-  ```
+- **Multi-language Support**: Run Kotlin (`.kts`) and Swift (`.swift`) scripts directly from the editor.
+- **Syntax Highlighting**: Real-time keyword highlighting for both Kotlin and Swift.
+- **Integrated Runner**: Toolbar with Run and Stop controls, language selection, and exit code status.
+- **Live Output**: Console output window for stdout and stderr (with error highlighting).
 
----
+## Requirements
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+To run scripts within the IDE, ensure the following are installed and available in your `PATH`:
+- **Kotlin**: `kotlinc` (for Kotlin scripts)
+- **Swift**: `swift` (for Swift scripts)
+
+## 🚀 Getting Started
+   ```bash
+   git clone https://github.com/alukic7/mini-ide.git
+   cd mini-ide
+   ./gradlew run
+   ```
+## Usage
+
+1. Select your target language (Kotlin or Swift) from the dropdown menu in the toolbar.
+2. Write your script in the editor pane.
+3. Click **Run** to execute. 
+4. The output or potential errors will appear in the bottom panel.
+5. Click **Stop** if you need to terminate a running script.
