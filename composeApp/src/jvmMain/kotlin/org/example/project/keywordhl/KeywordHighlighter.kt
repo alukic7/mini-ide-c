@@ -37,10 +37,43 @@ object KeywordHighlighter {
             "if", "else"
         )
 
+    val cKeywords: List<String> =
+        listOf(
+            "void", "char", "short", "int", "long",
+            "float", "double", "signed", "unsigned",
+            "_Bool", "_Complex", "_Imaginary",
+            "auto", "register", "static", "extern",
+            "const", "volatile", "restrict",
+            "if", "else", "switch", "case", "default",
+            "while", "do", "for", "break", "continue",
+            "return", "goto",
+            "struct", "union", "enum", "typedef",
+            "sizeof", "alignof", "alignas",
+            "_Atomic", "_Generic", "_Noreturn",
+            "_Static_assert", "_Thread_local"
+        )
+
+    val rustKeywords: List<String> =
+        listOf(
+            "fn", "let", "const", "static", "mod", "use",
+            "struct", "enum", "union", "trait", "impl",
+            "type", "where", "crate", "super", "self", "Self",
+            "if", "else", "match", "while", "for", "loop",
+            "break", "continue", "return",
+            "move", "async", "await",
+            "unsafe", "ref", "mut", "dyn",
+            "panic", "try", "?",
+            "pub", "in",
+            "true", "false", "_"
+        )
+
+
     fun highlightKeyword(word: String, config: RuntimeConfiguration): AnnotatedString {
         val keywords = when (config) {
             RuntimeConfiguration.KOTLIN -> kotlinKeywords
             RuntimeConfiguration.SWIFT -> swiftKeywords
+            RuntimeConfiguration.RUST -> rustKeywords
+            RuntimeConfiguration.C -> cKeywords
         }
 
         return buildAnnotatedString {

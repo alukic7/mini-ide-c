@@ -40,8 +40,11 @@ class RunnerViewModel(
                 val extension = when (_state.value.runtimeConfiguration) {
                     RuntimeConfiguration.KOTLIN -> "kts"
                     RuntimeConfiguration.SWIFT -> "swift"
+                    RuntimeConfiguration.RUST -> "rs"
+                    RuntimeConfiguration.C -> "c"
                 }
                 val scriptFile = tempDir?.resolve("foo.$extension")
+                val outputFile = tempDir?.resolve("foo.out")
                 scriptFile?.writeText(editorViewModel.state.value.text)
 
                 when(_state.value.runtimeConfiguration) {
@@ -62,6 +65,21 @@ class RunnerViewModel(
                             scriptFile?.
                             toAbsolutePath().
                             toString()
+                        )
+                    }
+
+                    RuntimeConfiguration.RUST -> {
+                        // Using rustc for single-file compilation and execution
+                        pb = ProcessBuilder(
+                            "/bin/sh", "-c",
+                            "rustc ${scriptFile?.toAbsolutePath()} -o ${outputFile?.toAbsolutePath()} && ${outputFile?.toAbsolutePath()}"
+                        )
+                    }
+                    RuntimeConfiguration.C -> {
+                        // Using clang (or gcc) for C
+                        pb = ProcessBuilder(
+                            "/bin/sh", "-c",
+                            "clang ${scriptFile?.toAbsolutePath()} -o ${outputFile?.toAbsolutePath()} && ${outputFile?.toAbsolutePath()}"
                         )
                     }
                 }

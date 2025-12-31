@@ -3,6 +3,8 @@ package org.example.project.ui.runner
 enum class RuntimeConfiguration(val desc: String) {
     KOTLIN("kotlinc in PATH"),
     SWIFT("swift in PATH"),
+    RUST("cargo in PATH"),
+    C("clang in PATH"),
 }
 
 data class RunnerState(
