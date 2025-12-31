@@ -14,12 +14,13 @@ import java.awt.SystemColor.text
 object KeywordHighlighter {
     val kotlinKeywords: List<String> =
         listOf(
-            "val", "var", "fun", "inline", "const",
-            "class", "open", "interface", "abstract",
+            "val", "var", "fun", "inline", "const", "throw",
+            "class", "open", "interface", "abstract", "vararg",
             "object", "enum", "inline", "data", "try",
             "catch", "finally", "import", "package",
             "public", "private", "protected", "while",
-            "for", "do", "return", "break", "when", "sealed"
+            "for", "do", "return", "break", "when", "sealed",
+            "if", "else", "in", "is", "out", "as", "this",
         )
 
     val swiftKeywords: List<String> =
@@ -32,7 +33,8 @@ object KeywordHighlighter {
             "if", "else", "switch", "case", "default",
             "for", "while", "repeat", "break", "continue", "return",
             "guard", "where", "throw", "throws", "try", "catch",
-            "as", "is", "nil", "self", "super"
+            "as", "is", "nil", "self", "super",
+            "if", "else"
         )
 
     fun highlightKeyword(word: String, config: RuntimeConfiguration): AnnotatedString {

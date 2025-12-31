@@ -47,6 +47,7 @@ fun App() {
                 )
                 OutputPane(
                     outputViewModel = outputViewModel,
+                    editorViewModel = editorViewModel,
                     modifier = Modifier.fillMaxWidth().weight(1f)
                 )
             }
