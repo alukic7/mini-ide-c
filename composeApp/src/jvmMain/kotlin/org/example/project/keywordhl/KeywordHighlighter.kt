@@ -50,7 +50,8 @@ object KeywordHighlighter {
             "struct", "union", "enum", "typedef",
             "sizeof", "alignof", "alignas",
             "_Atomic", "_Generic", "_Noreturn",
-            "_Static_assert", "_Thread_local"
+            "_Static_assert", "_Thread_local",
+            "include", "define"
         )
 
     val rustKeywords: List<String> =
