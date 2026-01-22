@@ -1,6 +1,6 @@
 # Mini IDE 
 
-A lightweight IDE for running Kotlin and Swift scripts, built with **Compose Multiplatform** targeting **desktop**.
+A lightweight IDE for running Rust, C, Kotlin and Swift scripts, built with **Compose Multiplatform** targeting **desktop**.
 
 ## Features
 
